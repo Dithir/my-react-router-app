@@ -1,21 +1,27 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
+/* import ralsei from "./Ralsei.webp" */
+
 
 export function Welcome() {
+
+  const ralsei = "https://t4.ftcdn.net/jpg/02/52/15/95/360_F_252159531_5hyXvKjfN406Oj3HT3G6ADrWmUxOeBLZ.jpg"
+
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
         <header className="flex flex-col items-center gap-9">
-          <div className="w-[500px] max-w-[100vw] p-4">
+          <div className="w-[500px] max-w-[100vw] p-4 justify-items-center" >
+            <input className="text-xl" type="text" />
             <img
               src={logoLight}
               alt="React Router"
-              className="block w-full dark:hidden"
+              className="h-[200px] block dark:hidden "
             />
             <img
-              src={logoDark}
+              src={ralsei}
               alt="React Router"
-              className="hidden w-full dark:block"
+              className="hidden dark:block max-h-[200px] aspect-auto"
             />
           </div>
         </header>

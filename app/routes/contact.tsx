@@ -1,11 +1,11 @@
 
 
-export default function About(){
+export default function Contact(){
 
     return(
         <div >
             <span className="text-3xl font-bold underline text-blue-600">
-                About Placeholder
+                Contact Placeholder
             </span>
         </div>
         

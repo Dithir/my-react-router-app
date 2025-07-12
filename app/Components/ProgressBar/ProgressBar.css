@@ -1,0 +1,46 @@
+.bar{
+    appearance: none;
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+::-webkit-progress-value{
+    border-radius: 50px;
+}
+
+::-webkit-progress-bar{
+    background:none;
+}
+
+.one::-webkit-progress-value{
+    background: linear-gradient(90deg, red,red);
+}
+
+.two::-webkit-progress-value{
+    background: linear-gradient(90deg, red, yellow);
+}
+
+.three::-webkit-progress-value{
+    background: linear-gradient(90deg, red, yellow);
+}
+
+.four::-webkit-progress-value{
+    background: linear-gradient(90deg, red, yellow);
+}
+
+.five::-webkit-progress-value{
+    background: linear-gradient(90deg, red, yellow, green);
+}
+
+.six::-webkit-progress-value{
+    background: linear-gradient(90deg, red, yellow, green);
+}
+
+.seven::-webkit-progress-value{
+    background: linear-gradient(90deg, red, yellow, green);
+}
+
+.eight::-webkit-progress-value{
+    background: linear-gradient(90deg, red, yellow, rgb(129, 155, 80),green);
+}
