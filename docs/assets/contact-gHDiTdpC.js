@@ -1,1 +1,0 @@
-import{w as n,j as t}from"./chunk-NL6KNZEE-DhELS8VL.js";const s=n(function(){return t.jsx("div",{children:t.jsx("span",{className:"text-3xl font-bold underline text-blue-600",children:"Contact Placeholder sdasd"})})});export{s as default};

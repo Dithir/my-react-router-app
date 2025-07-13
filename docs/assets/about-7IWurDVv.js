@@ -1,0 +1,1 @@
+import{w as e,j as t}from"./chunk-QMGIS6GS-BUE4igme.js";const s=e(function(){return t.jsx("div",{children:t.jsx("span",{className:"text-3xl font-bold underline text-blue-600",children:"About Placeholder asd"})})});export{s as default};
