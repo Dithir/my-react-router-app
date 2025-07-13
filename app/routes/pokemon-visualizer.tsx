@@ -16,7 +16,7 @@ export default function PokeVisualizer(){
         <>
            
             <Visualizer></Visualizer>
-            
+            asdasd
         </>
         
     )
