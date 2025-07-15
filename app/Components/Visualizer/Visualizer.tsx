@@ -57,8 +57,8 @@ export default function Visualizer(){
                 <div className="w-200 h-20 m-10 bg-linear-145 from-red-800 to-gray-900 rounded-xl flex items-center justify-center"> 
                         <div className="flex justify-around items-center w-100 md:w-130 text-xl">
                             <input onChange={handleInputChange} onKeyDown={keyboardEventHandler} className="rounded-xl pl-2 bg-gray-300 w-60 h-10 text-xl outline-hidden text-black" type="text" value={newPokemon} />
-                            <button onClick={addPokemon} className="bg-blue-500 p-2 w-20 rounded-xl">Add</button>
-                            <button onClick={clearAll} className="bg-red-500 rounded-xl p-1.5">Clear</button>
+                            <button onClick={addPokemon} className="bg-blue-500 p-2 w-20 rounded-xl active:scale-98 active:border-black">Add</button>
+                            <button onClick={clearAll} className="bg-red-500 rounded-xl p-1.5 active:scale-98 active:shadow-lg">Clear</button>
                         </div>
                         
                 </div>

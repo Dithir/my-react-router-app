@@ -5,6 +5,16 @@
     padding-bottom: 4px;
 }
 
+@-moz-document url-prefix() {
+  .bar {
+    height: 12px; /* Firefox-specific height */
+    background: transparent;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 2px;
+  }
+}
+
 ::-webkit-progress-value{
     border-radius: 50px;
 }
@@ -43,4 +53,37 @@
 
 .eight::-webkit-progress-value{
     background: linear-gradient(90deg, red, yellow, rgb(129, 155, 80),green);
+}
+
+.one::-moz-progress-bar {
+    background: linear-gradient(90deg, red, red);
+    border-radius: 50px;
+}
+.two::-moz-progress-bar {
+    background: linear-gradient(90deg, red, yellow);
+    border-radius: 50px;
+}
+.three::-moz-progress-bar {
+    background: linear-gradient(90deg, red, yellow);
+    border-radius: 50px;
+}
+.four::-moz-progress-bar {
+    background: linear-gradient(90deg, red, yellow);
+    border-radius: 50px;
+}
+.five::-moz-progress-bar {
+    background: linear-gradient(90deg, red, yellow, green);
+    border-radius: 50px;
+}
+.six::-moz-progress-bar {
+    background: linear-gradient(90deg, red, yellow, green);
+    border-radius: 50px;
+}
+.seven::-moz-progress-bar {
+    background: linear-gradient(90deg, red, yellow, green);
+    border-radius: 50px;
+}
+.eight::-moz-progress-bar {
+    background: linear-gradient(90deg, red, yellow, rgb(129, 155, 80), green);
+    border-radius: 50px;
 }

@@ -1,0 +1,1 @@
+import{w as o,o as t}from"./chunk-QMGIS6GS-CJK3irhm.js";const s=o(function(){return t.jsx("div",{children:t.jsx("span",{className:"text-3xl font-bold underline text-blue-600",children:"About Placeholder asd"})})});export{s as default};

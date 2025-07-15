@@ -5,6 +5,6 @@ export default [
     route("about", "routes/about.tsx"),
     route("contact", "routes/contact.tsx"),
     route("pokemon-visualizer", "routes/pokemon-visualizer.tsx"),
-    route("pokedex", "routes/pokedex.tsx")
+    route("pokedex/:pokemon?/:section?", "routes/pokedex.tsx"),
 
 ] satisfies RouteConfig;
