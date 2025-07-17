@@ -1,7 +1,7 @@
 import type { Route } from "./+types/pokedex";
 import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Overview from "../Components/Pokedex/Overview/Overview";
 import Entries from "../Components/Pokedex/Overview/Entries";
 import Locations from "../Components/Pokedex/Overview/Locations";
@@ -22,21 +22,55 @@ export default function Pokedex() {
   const navigate = useNavigate();
   const [pokemonData, setPokemonData] = useState(null);
 
+  useEffect(() => {
+    try {
+      const fetchPokemonData = async () => {
+        if (pokemon) {
+          const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+          if (!response.ok) {
+            console.log(response.ok)
+            throw new Error("Pokemon not found");
+          }
+          const data = await response.json();
+          setPokemonData(data);
+          
+        } else {
+          setPokemonData(null);
+        }
+      }
+      fetchPokemonData();
+    } catch (error) {
+      console.error("Error fetching pokemon data:", error);
+    }
+    
+  },[pokemon]);
+
   function handleInputChange(e:any){
     setInput(e.target.value);
   }
 
-  function handleSearch(){
-    navigate(`/pokedex/${input}`);
-    setInput("");
+  async function checkPokemonExists(pokemonName: string) {
+    try {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+      return response.ok;
+    } catch (error) {
+      console.error("Error checking pokemon existence:", error);
+      return false;
+    }
+  }
+
+  async function handleSearch(){
+
+    if(input !== "" && await checkPokemonExists(input)){navigate(`/pokedex/${input}`);
+    setInput("");}
   }
 
   return (
-    <div className="flex items-center justify-center w-screen h-screen">
-        <div className="w-220 h-screen flex items ">
+    <div className="flex items-center justify-center w-screen">
+        <div className="w-220 flex items ">
             <div className="w-42 h-full bg-gray-800 rounded-xl mt-5 ml-5 flex flex-col items-center">
 
-                <input onChange={(e)=>{handleInputChange(e)}} className="bg-white max-w-[80%] h-5 rounded-[5px] mt-4 mb-2 text-black text-[12px]" placeholder="Type a pokemon here" type="text" />
+                <input onChange={(e)=>{handleInputChange(e)}} className="text-center bg-white max-w-[80%] h-5 rounded-[5px] mt-4 mb-2 text-black text-[12px]" placeholder="Type a pokemon here" type="text" value={input} />
                 <button onClick={handleSearch} className="bg-gray-300 text-black p-1 m-2 text-[13px] rounded-[7px]">Search</button>
                 <ul className="w-full flex flex-col [&>*]:text-center [&>*]:w-full [&>*]:text-[13px] [&>*]:text-white [&>*]:p-2 [&>*]:hover:bg-gray-300 [&>*]:hover:text-black">
                     <Link to={`/pokedex/${pokemon}/overview`}>

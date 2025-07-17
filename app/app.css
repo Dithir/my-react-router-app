@@ -28,3 +28,18 @@ body {
 .navBar{
   background-image: url("Components\navbar\navBarBg.gif");
 }
+
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #1f2937; /* thumb, track */
+}
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #1f2937;
+}

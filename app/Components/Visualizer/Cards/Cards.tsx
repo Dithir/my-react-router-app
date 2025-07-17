@@ -75,9 +75,9 @@ export default function Cards({name, id, close}:CardProps){
                             <img src={data ? data.sprites.front_default : null} alt="" />
                         </div>
                         <div className="rounded-xl w-25 h-15 flex flex-col items-center">
-                            {data ? <img src={`app/Components/Visualizer/TypeSprites/${data.types[0].type.name}.png`} alt="" className="h-[50%]"/> : <></>}
+                            {data ? <img src={`/my-react-router-app/TypeSprites/${data.types[0].type.name}.png`} alt="" className="h-[50%]"/> : <></>}
                             {data ? 
-                            (data.types.length === 2 ? <img src={`app/Components/Visualizer/TypeSprites/${data.types[1].type.name}.png`} alt="" className="h-[50%]"/> : "")
+                            (data.types.length === 2 ? <img src={`/my-react-router-app/TypeSprites//${data.types[1].type.name}.png`} alt="" className="h-[50%]"/> : "")
                             : 
                             <></>}
                         </div>
