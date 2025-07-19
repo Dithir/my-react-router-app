@@ -6,5 +6,6 @@ export default [
     route("contact", "routes/contact.tsx"),
     route("pokemon-visualizer", "routes/pokemon-visualizer.tsx"),
     route("pokedex/:pokemon?/:section?", "routes/pokedex.tsx"),
+    route("dnd-practice", "routes/dnd-practice.tsx"),
 
 ] satisfies RouteConfig;
