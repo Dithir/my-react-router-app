@@ -8,8 +8,8 @@ export default function Navbar(){
         {name: "Home", path: "/" },
         {name: "Pokedex", path: "/pokedex" },
         {name: "Visualizer", path: "/pokemon-visualizer" },
-        {name: "Testing", path: "/dnd-practice" },
-        {name: "About", path: "/about" },
+        {name: "Interactive DragAndDrop", path: "/dnd-practice" },
+        {name: "About Me", path: "/about" },
         {name: "Contact", path: "/contact" },
         
         

@@ -1,79 +1,18 @@
 import { useState } from "react";
+import GridModifiers from "~/Components/GridModifiers/GridModifiers";
+import MakeGrid from "~/Components/MakeGrid/MakeGrid";
 
-const colors = [
-  "bg-blue-500",
-  "bg-red-500",
-  "bg-green-500",
-  "bg-yellow-500",
-  "bg-purple-500",
-  "bg-pink-500",
-  "bg-indigo-500",
-  "bg-teal-500",
-  "bg-orange-500",
-  "bg-gray-500",
-  "bg-lime-500",
-  "bg-cyan-500",
-  "bg-violet-500",
-  "bg-amber-500",
-  "bg-rose-500",
-  "bg-sky-500",
-];
+export default function DragAndDrop() {
 
-export default function DragAndDropSwap() {
-  const [types, setTypes] = useState(
-    [{url: "TypeSprites/normal.png", name: "Normal"},
-    {url: "TypeSprites/fire.png", name: "Fire"},
-    {url: "TypeSprites/water.png", name: "Water"},
-    {url: "TypeSprites/grass.png", name: "Grass"},
-    {url: "TypeSprites/electric.png", name: "Electric"},
-    {url: "TypeSprites/ice.png", name: "Ice"},
-    {url: "TypeSprites/fighting.png", name: "Fighting"},
-    {url: "TypeSprites/poison.png", name: "Poison"},
-    {url: "TypeSprites/ground.png", name: "Ground"},
-    {url: "TypeSprites/flying.png", name: "Flying"},
-    {url: "TypeSprites/psychic.png", name: "Psychic"},
-    {url: "TypeSprites/bug.png", name: "Bug"},
-    {url: "TypeSprites/rock.png", name: "Rock"},
-    {url: "TypeSprites/ghost.png", name: "Ghost"},
-    {url: "TypeSprites/dragon.png", name: "Dragon"},
-    {url: "TypeSprites/dark.png", name: "Dark"},
-    {url: "TypeSprites/steel.png", name: "Steel"},
-    {url: "TypeSprites/fairy.png", name: "Fairy"}, ]
-  );
-  const [draggedIdx, setDraggedIdx] = useState<number | null>(null);
-
-  function handleDragStart(idx: number) {
-    setDraggedIdx(idx);
-  }
-
-  function handleDrop(idx: number) {
-    if (draggedIdx === null || draggedIdx === idx) return;
-    const newTypes = [...types];
-    [newTypes[draggedIdx], newTypes[idx]] = [newTypes[idx], newTypes[draggedIdx]];
-    setTypes(newTypes);
-    setDraggedIdx(null);
-  }
-
-  function handleDragOver(e: React.DragEvent<HTMLDivElement>) {
-    e.preventDefault();
-  }
 
   return (
-    <div className="flex flex-col items-center justify-center mt-10">
-        <div className="flex flex-wrap items-center justify-center h-60 w-100 gap-4">
-      {types.map((type, idx) => (
-        <img
-          className={`h-10 rounded-lg cursor-pointer`}
-          key={type.name}
-          src={type.url}
-          alt={type.name}
-          draggable
-          onDragStart={() => handleDragStart(idx)}
-          onDrop={() => handleDrop(idx)}
-          onDragOver={handleDragOver}        >
-        </img>
-      ))}
+    <div className="w-screen h-screen flex flex-col items-center justify-center">
+      <p className="w-150">This page at the moment is just a practice for Drag and Drop, im planning on making some thing related to Pokemon later, maybe something like a
+      interactive Chess Board with pokemon pieces or something, but for now it is just a practice.</p>
+      <div className="w-screen h-100 flex items-center justify-center">
+      <GridModifiers/>
+      <MakeGrid length={5} width={5} />
     </div>
     </div>
-  );
+  )
 }

@@ -67,7 +67,7 @@ export default function Pokedex() {
 
   return (
     <div className="flex items-center justify-center w-screen">
-        <div className="w-220 flex items ">
+        <div className="w-220  flex items ">
             <div className="w-42 h-full bg-gray-800 rounded-xl mt-5 ml-5 flex flex-col items-center">
 
                 <input onChange={(e)=>{handleInputChange(e)}} className="text-center bg-white max-w-[80%] h-5 rounded-[5px] mt-4 mb-2 text-black text-[12px]" placeholder="Type a pokemon here" type="text" value={input} />
