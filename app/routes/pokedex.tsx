@@ -21,6 +21,8 @@ export default function Pokedex() {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
   const [pokemonData, setPokemonData] = useState(null);
+  const [wrongAnimation, setWrongAnimation] = useState(false);
+  const [wrongPrompt, setWrongPrompt] = useState(false);
 
   useEffect(() => {
     try {
@@ -45,6 +47,13 @@ export default function Pokedex() {
     
   },[pokemon]);
 
+  function toggleWrongName(setter: (value: boolean) => void) {
+  setter(true);
+  setTimeout(() => {
+    setter(false);
+  }, 2000);
+}
+
   function handleInputChange(e:any){
     setInput(e.target.value);
   }
@@ -62,7 +71,13 @@ export default function Pokedex() {
   async function handleSearch(){
 
     if(input !== "" && await checkPokemonExists(input)){navigate(`/pokedex/${input}`);
-    setInput("");}
+    setInput("");
+    setWrongPrompt(false);
+  } else {
+      toggleWrongName(setWrongAnimation)
+      setWrongPrompt(true); 
+    }
+
   }
 
   return (
@@ -70,7 +85,8 @@ export default function Pokedex() {
         <div className="w-220  flex items ">
             <div className="w-42 h-full bg-gray-800 rounded-xl mt-5 ml-5 flex flex-col items-center">
 
-                <input onChange={(e)=>{handleInputChange(e)}} className="text-center bg-white max-w-[80%] h-5 rounded-[5px] mt-4 mb-2 text-black text-[12px]" placeholder="Type a pokemon here" type="text" value={input} />
+                <input onChange={(e)=>{handleInputChange(e)}} className={`text-center bg-white max-w-[80%] h-5 rounded-[5px] mt-4 mb-2 text-black text-[12px] ${wrongAnimation ? "animate-wiggle border-red-600 border-1" : ""}`} placeholder="Type a pokemon here" type="text" value={input} />
+                {wrongPrompt && <p className="text-white text-[12px]">Try a valid Pokemon</p>}
                 <button onClick={handleSearch} className="bg-gray-300 text-black p-1 m-2 text-[13px] rounded-[7px]">Search</button>
                 <ul className="w-full flex flex-col [&>*]:text-center [&>*]:w-full [&>*]:text-[13px] [&>*]:text-white [&>*]:p-2 [&>*]:hover:bg-gray-300 [&>*]:hover:text-black">
                     <Link to={`/pokedex/${pokemon}/overview`}>
